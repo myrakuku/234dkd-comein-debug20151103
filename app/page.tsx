@@ -1,103 +1,56 @@
-import Image from "next/image";
 
-export default function Home() {
+import Image from 'next/image';
+import Link from 'next/link';
+import Nav from "../components/Nav";
+import GoogleMap from "../components/GoogleMap";
+import Icon from "../components/icon";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Comein |香港專業高價回收電子產品 | 回收Apple、Lenovo、Samsung 等大量品牌",
+    description: "Comein 專業高價回收 MacBook、iPhone、手機、電腦等各類二手電子產品，高價回收！香港門市或上門回收，安全快速交易。",
+    keywords: 'Price, iphone 16, iphone 17, iphone 17 pro, iphone 17 air, Macbook, Macbook Pro, Macbook Air, Macbook M5, Macbook M4, ipad pro, apple, 旺角二手, 二手Macbook, 二手iPhone, 二手回收, 二手電子產品回收, iPhone 回收, iPad 回收, 舊手機回收, 舊平板回收, Sin Tat Plaza, Apple iphone 11 pro max, iphone 16e, iphone pro max 17, 設備狀況評估, 數據抹除, 設備升級/更新, 保修和服務, 可持續發展, 環保意識, 電子廢物, Comein macbook, 旺角二手回收, 先達二手回收, 專業回收, 星際二手回收, 高價回收, 高價',
+    authors: [{ name: 'Comein', url: 'https://comeinmacbook.com/' }]
+  };
+
+export default function MainPage() {
+      
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  <>
+  <Nav/>
+  <main className="">
+    <Image src="/image/banner.png" width={0} height={0} sizes="100vw" className="w-full h-auto" alt="Comein banner Apple product collection iphone Macbook" />
+  </main>
+        <div className="pb-10">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold  text-center pt-10">高價回收各類電子產品</h1>
+            <div className="text-sm text-center">
+                <p className="px-10 sm:px-20 lg:px-30">
+                我們專業回收各大品牌電子產品，包括 Apple、Asus、DELL、Google、Lenovo、MSI、Microsoft、RAZER、Samsung、SONY、acer、Panasonic 等等，無論是手機、平板、筆電、電腦主機，還是其他智能裝置，我們都以 <span className="text-2xl font-bold text-blue-700">市場最高價</span> 現金收購！
+                </p>
+                <p className="px-10 sm:px-20 lg:px-30">
+                    <br />✅ 即時估價 ── 提供型號及規格，立即報價
+                    <br />✅ 專業檢測 ── 快速驗機，價格透明
+                    <br />✅ 多元交收 ── 門市（旺區便利）或上門回收
+                    <br />✅ 安全服務 ── 協助清除資料，保障隱私
+                </p>
+                <p className="px-10 sm:px-20 lg:px-30">
+                    <br />閒置電子產品別浪費，交給我們 高價回收，輕鬆換現金！立即 WhatsApp 聯絡，獲取最優報價！
+                    <br /><br />門市地址：旺角山東街47-51號星際城市3樓304號鋪
+                    <br />📞 69291767 
+                    <br />
+                    
+                </p>
+                <div className='pt-5 flex justify-center gap-5'>
+                    <Image src="/image/comein_store.png" alt={""} width={0} height={0} sizes="100vw" style={{ objectFit: 'scale-down', width:'200px' }}></Image>
+                    <Image src="/image/comein_store_2.png" alt={""} width={0} height={0} sizes="100vw" style={{ objectFit: 'scale-down', width:'200px' }}></Image>
+                </div>
+            </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <GoogleMap/>
+        <Icon/>
+        <div className="p-10 sm:px-20 lg:px-30 text-center">
+          <Link href="/faq" className="text-gray-400 text-sm hover:text-blue-600">FAQ</Link> 
+        </div>
+  </>
   );
-}
+};
