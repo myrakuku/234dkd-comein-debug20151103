@@ -21,7 +21,8 @@ npm i next-sitemap
         npx next-sitemap
     3.3 Google Tag
         npm install @next/third-parties
-
+        
+#### 4. Fix bug
 
 
 ## Getting Started

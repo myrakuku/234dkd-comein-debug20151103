@@ -1,9 +1,10 @@
 // import type { Metadata } from "next";
-"use client";
+"use client"
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { useState, useEffect } from 'react';
+import Script from 'next/script';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout(
   }, []);
 
   return (
+    
     <html lang="en">
       <head>
         {/* Google Tag Manager */}
@@ -46,6 +48,10 @@ export default function RootLayout(
             gtag('config', 'AW-17686484723');
           `}
         </script>
+        <Script
+        src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"
+        strategy="beforeInteractive"
+      />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

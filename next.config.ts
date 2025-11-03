@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
+// import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
+const nextConfig = {
+    headers: async () => [
+      {
+        source: '/_next/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' },
+        ],
+      },
+    ],
+  };
+  module.exports = nextConfig;
