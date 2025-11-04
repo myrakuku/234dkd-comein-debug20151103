@@ -24,6 +24,7 @@ npm i next-sitemap
         
 #### 4. Fix bug
 layout.tsx
+
     // Add Client Side
     const [isClient, setIsClient] = useState(false);
     useEffect(() => setIsClient(true), []);
@@ -37,16 +38,17 @@ layout.tsx
       <Component {...pageProps} />
 
 next.config.ts
+
     // 解决 Safari 资源缓存问题
     const nextConfig = {
     headers: async () => [
-      {
-        source: '/_next/(.*)',
-        headers: [
-          { key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' },
+        {
+            source: '/_next/(.*)',
+            headers: [
+            { key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' },
+            ],
+        },
         ],
-      },
-    ],
-  };
-  module.exports = nextConfig;
+    };
+    module.exports = nextConfig;
 
