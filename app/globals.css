@@ -11,3 +11,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   padding-top: 4.5rem;
 }
+
+/* 確保 light 主題的樣式 */
+.light {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+.light body {
+  background: #ffffff;
+  color: #171717;
+}

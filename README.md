@@ -6,7 +6,46 @@
     Tailwind: v4.1
 
 #### 1. Remove Dark Mode & Remove "prefers-color-scheme: dark" on globals.css
-npm uninstall next-themes
+    // app/layout.tsx
+    export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return (
+        <html lang="zh-TW" className="light">
+        <head>
+            {/* 清除可能的緩存樣式 */}
+            <meta name="theme-color" content="#ffffff" />
+            <style dangerouslySetInnerHTML={{
+            __html: `
+                /* 強制重置主題相關樣式 */
+                * { 
+                color-scheme: light !important; 
+                }
+                html, body { 
+                background: white !important; 
+                color: black !important; 
+                }
+            `
+            }} />
+        </head>
+        <body className="bg-white text-black">
+            {children}
+        </body>
+        </html>
+    )
+    }
+
+
+    /* app/globals.css */
+    /* 確保 light 主題的樣式 */
+    .light {
+    --background: #ffffff;
+    --foreground: #000000;
+    }
+
+    .light body {
+    background: #ffffff;
+    color: #000000;
+    }
+
 
 #### 2. Use react icon
 npm install react-icons

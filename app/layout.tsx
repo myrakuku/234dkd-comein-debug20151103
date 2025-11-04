@@ -1,10 +1,10 @@
-// import type { Metadata } from "next";
-"use client"
+
+'use client'
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { GoogleAnalytics } from '@next/third-parties/google';
 import { useState, useEffect } from 'react';
 import Script from 'next/script';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,8 +36,23 @@ export default function RootLayout(
 
   return (
     
-    <html lang="en">
+    <html lang="en" className="light" suppressHydrationWarning>
       <head>
+        {/* 清除可能的緩存樣式 */}
+        <meta name="theme-color" content="#ffffff" />
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* 強制重置主題相關樣式 */
+            * { 
+              color-scheme: light !important; 
+            }
+            html, body { 
+              background: white !important; 
+              color: black !important; 
+            }
+          `
+        }} />
+        
         {/* Google Tag Manager */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17686484723"></script>
         <script>
@@ -54,7 +69,7 @@ export default function RootLayout(
       />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased <html lang="en" className="light bg-white text-black">`}
       >
         {isClient && children} {/* 只有在客户端加载时才渲染 children */}
       </body>
