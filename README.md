@@ -2,7 +2,7 @@
 ## Important message
 
     node version: v20.19.5
-    Next js: v15.0.0
+    Next js: v15.5.6
     Tailwind: v4.1
 
 #### 1. Remove Dark Mode & Remove "prefers-color-scheme: dark" on globals.css
@@ -23,11 +23,30 @@ npm i next-sitemap
         npm install @next/third-parties
         
 #### 4. Fix bug
+layout.tsx
+    // Add Client Side
+    const [isClient, setIsClient] = useState(false);
+    useEffect(() => setIsClient(true), []);
 
+    // 强制 Safari 刷新资源
+    import Script from 'next/script';
+    <Script
+        src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"
+        strategy="beforeInteractive"
+      />
+      <Component {...pageProps} />
 
-## Getting Started
+next.config.ts
+    // 解决 Safari 资源缓存问题
+    const nextConfig = {
+    headers: async () => [
+      {
+        source: '/_next/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' },
+        ],
+      },
+    ],
+  };
+  module.exports = nextConfig;
 
-First, run the development server:
-
-```bash
-npm run dev# 234dkd-comein-debug20151103
